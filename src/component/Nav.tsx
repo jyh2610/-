@@ -4,24 +4,37 @@ import { useState } from "react";
 
 interface NavProps {
   suffleDeck: () => void;
+  resetDeck: () => void;
+  hint: () => void;
 }
-const Nav: React.FC<NavProps> = ({ suffleDeck }) => {
+interface voidFuc {
+  (): void;
+}
+const Nav: React.FC<NavProps> = ({ suffleDeck, resetDeck, hint }) => {
   const [count, setCount] = useState(5);
   const [showReset, setShowReset] = useState(false);
-  const [time, setTime] = useState("10:00");
+  const [time, setTime] = useState({
+    min: 10,
+    sec: 0,
+  });
   const hintHandler = () => {
     count > 0 && setCount((prev) => prev - 1);
+    hint();
   };
-  const resetHandler = () => {
+  const resetHandler: voidFuc = () => {
     setCount(5);
+    resetDeck();
   };
+
   return (
     <Form>
       <div>
         <button onClick={suffleDeck} type="button">
           게임 시작
         </button>
-        <button type="button"> 리셋 </button>
+        <button onClick={resetHandler} type="button">
+          리셋
+        </button>
       </div>
       <Hint>
         <span>{count}</span>
@@ -29,6 +42,9 @@ const Nav: React.FC<NavProps> = ({ suffleDeck }) => {
           힌트
         </button>
       </Hint>
+      <div>
+        {time.min} : {time.sec}
+      </div>
     </Form>
   );
 };
