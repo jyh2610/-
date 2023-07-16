@@ -4,11 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "start": "next start",
-    "lint": "next lint",
-    "build": "next build && next export",
-    "predeploy": "npm run build",
-    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@babel/plugin-transform-template-literals": "^7.22.5",
