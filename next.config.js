@@ -5,7 +5,7 @@ const name = "cardgame";
 const nextConfig = {
   assetPrefix: !debug ? `/${name}/` : "",
   output: "export",
-  basePath: "",
+  basePath: "/docs",
 };
 
 module.exports = nextConfig;
