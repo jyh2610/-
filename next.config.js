@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
+
+const debug = process.env.NODE_ENV !== "production";
+const name = "cardgame";
 const nextConfig = {
-  assetPrefix:
-    process.env.NODE_ENV === "production"
-      ? "https://jyh2610.github.io/cardgame"
-      : "",
+  assetPrefix: !debug ? `/${name}/` : "",
   output: "export",
   basePath: "",
 };

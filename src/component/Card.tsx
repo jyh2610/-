@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import styled from "@emotion/styled";
+import Image from "next/image";
 import { cardId, cardNum } from "@/card";
 
 interface arr {
@@ -82,7 +83,7 @@ export default function Card() {
           <CardImg
             onClick={() => openCardHandler(card)}
             key={card}
-            src={`https://jyh2610.github.io/cardgame/assets/image/card/${card}.png`}
+            src={`/image/card/${card}.png`}
           />
         ) : (
           <CardImg
@@ -90,8 +91,8 @@ export default function Card() {
             key={card}
             src={
               openCard.includes(card) || selectedCard.includes(card) || isRight
-                ? `https://jyh2610.github.io/cardgame/assets/image/card/${card}.png`
-                : "https://jyh2610.github.io/cardgame/assets/image/card/back.png"
+                ? `/assets/image/card/${card}.png`
+                : "/assets/image/card/back.png"
             }
           />
         )
