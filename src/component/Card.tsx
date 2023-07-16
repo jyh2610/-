@@ -82,7 +82,7 @@ export default function Card() {
           <CardImg
             onClick={() => openCardHandler(card)}
             key={card}
-            src={`/assets/image/card/${card}.png`}
+            src={`./assets/image/card/${card}.png`}
           />
         ) : (
           <CardImg
@@ -90,8 +90,8 @@ export default function Card() {
             key={card}
             src={
               openCard.includes(card) || selectedCard.includes(card) || isRight
-                ? `/assets/image/card/${card}.png`
-                : "/assets/image/card/back.png"
+                ? `./assets/image/card/${card}.png`
+                : "./assets/image/card/back.png"
             }
           />
         )
